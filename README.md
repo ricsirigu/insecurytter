@@ -5,7 +5,6 @@ A purposefully ugly, buggy and insecure web application built with Spring Boot, 
 
 It has the following security vulnerabilities:
 
-+ A2-Broken Authentication and Session Management
 + A3-Cross-Site Scripting (XSS)
 + A4-Insecure Direct Object References
 + A5-Security Misconfiguration
