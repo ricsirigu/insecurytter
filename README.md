@@ -5,12 +5,12 @@ A purposefully ugly, buggy and insecure web application built with Java 8 and Sp
 
 It has the following security vulnerabilities:
 
-1. A2-Broken Authentication and Session Management
-2. A3-Cross-Site Scripting (XSS)
-3. A4-Insecure Direct Object References
-4. A5-Security Misconfiguration
-5. A7-Missing Function Level Access Control
-6. A8-Cross-Site Request Forgery (CSRF)
++ A2-Broken Authentication and Session Management
++ A3-Cross-Site Scripting (XSS)
++ A4-Insecure Direct Object References
++ A5-Security Misconfiguration
++ A7-Missing Function Level Access Control
++ A8-Cross-Site Request Forgery (CSRF)
 
 
 References
