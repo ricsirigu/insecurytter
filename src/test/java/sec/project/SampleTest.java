@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import sec.project.repository.SignupRepository;
+import sec.project.repository.MessageRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,7 +25,7 @@ public class SampleTest {
     private WebApplicationContext webAppContext;
 
     @Autowired
-    private SignupRepository signupRepository;
+    private MessageRepository signupRepository;
 
     private MockMvc mockMvc;
 

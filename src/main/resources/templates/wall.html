@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Insecurytter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
+        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"> </link>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a class="navbar-brand" href="#">Insecurytter</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span th:text="${currentUser}"></span>
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a th:href="@{/logout}">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+        <div class="container">
+            <h1>What are you thinking?</h1>
+
+            <form action="#" th:action="@{/wall}" method="POST" class="form-horizontal">
+
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label for="name">Message</label>:
+                        <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-unstyled">
+                        <li th:each="m : ${messages}">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title pull-left" th:text="|Message of ${m.account.username}|"></h3>
+                                    <div th:if="${m.account.username == currentUser}">
+                                        <form th:action="@{/wall/{id}(id=${m.id})}" th:method="delete">
+                                            <input class="btn btn-default pull-right" type="submit" value="Delete"/>
+                                        </form>                                    
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    <span th:utext="${m.message}"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    </body>
+</html>
